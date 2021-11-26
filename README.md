@@ -18,7 +18,7 @@
 
 * **[Exercise1: Run spring-petclinic sample as fat jar](#Exercise1-Run-spring-petclinic-sample-as-fat-jar)**
 
-# 演習1-spring-petclinicサンプルの稼働確認  
+# Exercise1-Run-spring-petclinic-sample-as-fat-jar  
 
 (1)  Spring Petclinic sample web applicationのセットアップ
 
