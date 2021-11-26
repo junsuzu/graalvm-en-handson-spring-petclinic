@@ -14,11 +14,11 @@
  
 <br/>
 
-## <Contents>
+## ＜Contents＞
 
 * **[Exercise1: Run spring-petclinic sample as fat jar](#Exercise1-Run-spring-petclinic-sample-as-fat-jar)**
 
-# Exercise1-Run-spring-petclinic-sample-as-fat-jar  
+# Exercise1: Run spring-petclinic sample as fat jar  
 
 (1)  Spring Petclinic sample web applicationのセットアップ
 
