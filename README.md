@@ -31,12 +31,12 @@
 
 ## Exercise1: Run Spring PetClinic sample as fat jar  
 Run traditional Spring PetClinic sample application
-## 1.1 Download of Spring PetClinic sample
+### 1.1 Download of Spring PetClinic sample
 Some text
 >```sh
 >$ git clone https://github.com/spring-projects/spring-petclinic.git
 >```
-# 1.2 Build and run Spring PetClinic sample as fat jar
+### 1.2 Build and run Spring PetClinic sample as fat jar
 Some text
 Change java version from 1.8 to 11.
 ```
