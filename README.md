@@ -23,9 +23,8 @@
    * [2.1 Configuration of Spring Native dependency](#21-Configuration-of-Spring-Native-dependency)
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
-   * [2.4 Configuration of repository for dependency and plugin]
-   (#24-Configuration-of-repository-for-dependency and-plugin)
-   * [2.5 Customization for workaround](#15-Customization for workaround)(#25-Customization-for-workaround)
+   * [2.4 Configuration of repository for dependency and plugin](#24-Configuration-of-repository-for-dependency-and-plugin)
+   * [2.5 Customization for workaround](#25-Customization-for-workaround)
 
 
 # Exercise1: Run spring-petclinic sample as fat jar  
