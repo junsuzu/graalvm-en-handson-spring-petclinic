@@ -23,16 +23,15 @@
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
    * [2.4 Configuration of repository for dependency and plugin](#24-Configuration-of-repository-for-dependency-and-plugin)
-   * [2.5 Customization for native image build arguments](#25-Customization-for-native-image-build-arguments)
-   * [2.6 Customization for workaround](#26-Customization-for-workaround)
+   * [2.5 Customization for workaround](#25-Customization-for-workaround)
 
 * **[Exercise3: Run Spring PetClinic sample as docker container](#Exercise3-Run-Spring-PetClinic-sample-as-docker-container)**
    * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
    * [3.2 Run Spring PetClinic sample as docker container](#32-Run-Spring-PetClinic-sample-as-docker-container)
 
-# Exercise1: Run Spring PetClinic sample as fat jar  
+## Exercise1: Run Spring PetClinic sample as fat jar  
 Run traditional Spring PetClinic sample application
-# 1.1 Download of Spring PetClinic sample
+## 1.1 Download of Spring PetClinic sample
 Some text
 >```sh
 >$ git clone https://github.com/spring-projects/spring-petclinic.git
@@ -87,7 +86,7 @@ Add following contents into dependency tag of pom.xml.
 </dependencies>
 ```
 # 2.2 Configuration of Spring AOT plugin
-Add following contents into build tag of pom.xml.
+In order to use Spring AOT plugin provided by Spring Boot, specify spring-aot-maven-plugin（0.10.5）by adding following plugin definition into build tag of pom.xml.
 ```
 <build>
     <plugins>
@@ -115,14 +114,80 @@ Add following contents into build tag of pom.xml.
 </build>
 ```
 # 2.3 Configuration of native build tools plugin
-Some text
+In order to use native build tools plugin provided by GraalVM to invoke native image comiler, specify native-maven-plugin(0.9.4) within a native profile as below.
+Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image being built with DynamicLink.
+In later step we will use simple base image to build Docker.
+```
+<profile>
+  <id>native</id>
+  <build>
+      <plugins>
+          <plugin>
+              <groupId>org.graalvm.buildtools</groupId>
+              <artifactId>native-maven-plugin</artifactId>
+              <version>0.9.4</version>
+              <executions>
+                  <execution>
+                      <id>test-native</id>
+                      <goals>
+                          <goal>test</goal>
+                      </goals>
+                      <phase>test</phase>
+                  </execution>
+                  <execution>
+                      <id>build-native</id>
+                      <goals>
+                          <goal>build</goal>
+                      </goals>
+                      <phase>package</phase>
+                  </execution>
+              </executions>
+              <configuration>
+                  <!-- add native-image build arguments -->
+                  <buildArgs>
+                    <buildArg>--no-fallback</buildArg>
+                    <buildArg>-H:+StaticExecutableWithDynamicLibC</buildArg>
+                  </buildArgs>
+              </configuration>
+          </plugin>
+          <!-- Avoid a clash between Spring Boot repackaging and native-maven-plugin -->
+          <plugin>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-maven-plugin</artifactId>
+              <configuration>
+                  <classifier>exec</classifier>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+</profile>
+```
 # 2.4 Configuration of repository for dependency and plugin
-Some text
+To include the release repository for spring-native dependency, add repository information in pom.xml as below:
+```
+<repositories>
+		<!-- ... -->
+		<repository>
+			<id>spring-release</id>
+			<name>Spring release</name>
+			<url>https://repo.spring.io/release</url>
+		</repository>
+	</repositories>
+```
+```
+<pluginRepositories>
+		<!-- ... -->
+		<pluginRepository>
+			<id>spring-release</id>
+			<name>Spring release</name>
+			<url>https://repo.spring.io/release</url>
+		</pluginRepository>
+	</pluginRepositories>
+```
+# 2.5 Customization for workaround
+At this point of time, there are some bugs within the sample, which could be fixed using workaround as below:
 
-# 2.5 Customization for native image build arguments
-Some text
-# 2.6 Customization for workaround
-Some text
+
 
 # Exercise3: Run Spring PetClinic sample as docker container  
 Some text
