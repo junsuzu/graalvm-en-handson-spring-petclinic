@@ -1,6 +1,6 @@
 # Oracle GraalVM Enterprise hands-on "Run Spring PetClinic in native image and Docker container" 
 
-## <Purpose and target>:
+## <Purpose>:
 1. Run traditional Spring PetClinic sample as native image
 2. Run the sample with ligth-weight docker container embedded with native image
 　
@@ -31,18 +31,89 @@
    * [3.2 Run Spring PetClinic sample as docker container](#32-Run-Spring-PetClinic-sample-as-docker-container)
 
 # Exercise1: Run Spring PetClinic sample as fat jar  
-Some text
+Run traditional Spring PetClinic sample application
 # 1.1 Download of Spring PetClinic sample
 Some text
+>```sh
+>$ git clone https://github.com/spring-projects/spring-petclinic.git
+>```
 # 1.2 Build and run Spring PetClinic sample as fat jar
 Some text
+Change java version from 1.8 to 11.
+```
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.5.6</version>
+  </parent>
+  <name>petclinic</name>
+
+  <properties>
+
+    <!-- Generic properties -->
+    <java.version>1.8</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+```
+Using maven to build the application
+>```sh
+>$ cd /spring-petclinic
+>$ ./mvnw clean package -DskipTests=true
+>```
+<br/>
+
+Run the sample with fat jar.
+```
+linuser@JUNSUZU-JP:~/project/tmp/spring-petclinic/target$ java -jar spring-petclinic-2.5.0-SNAPSHOT-exec.jar
+2021-11-04 02:07:52.445  INFO 6115 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-04 02:07:52.469  INFO 6115 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 5.211 seconds (JVM running for 5.75)
+```
+
+Run Spring PetClinic sample on browser: http://localhost:8080
+INSERT gif here.
 
 # Exercise2: Run Spring PetClinic sample as native image  
 Some text
 # 2.1 Configuration of Spring Native dependency
-Some text
+Add following contents into dependency tag of pom.xml.
+```
+<dependencies>
+    <!-- ... -->
+    <dependency>
+        <groupId>org.springframework.experimental</groupId>
+        <artifactId>spring-native</artifactId>
+        <version>0.10.5</version>
+    </dependency>
+</dependencies>
+```
 # 2.2 Configuration of Spring AOT plugin
-Some text
+Add following contents into build tag of pom.xml.
+```
+<build>
+    <plugins>
+        <!-- ... -->
+        <plugin>
+            <groupId>org.springframework.experimental</groupId>
+            <artifactId>spring-aot-maven-plugin</artifactId>
+            <version>0.10.5</version>
+            <executions>
+                <execution>
+                    <id>test-generate</id>
+                    <goals>
+                        <goal>test-generate</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>generate</id>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+```
 # 2.3 Configuration of native build tools plugin
 Some text
 # 2.4 Configuration of repository for dependency and plugin
