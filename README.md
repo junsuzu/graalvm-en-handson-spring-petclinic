@@ -1,10 +1,9 @@
-# Oracle GraalVM Enterprise hands-on "Run spring-petclinic in native image and Docker container" 
+# Oracle GraalVM Enterprise hands-on "Run Spring PetClinic in native image and Docker container" 
 
 ## <Purpose and target>:
-1. Run traditional spring-petclinic sample as native image
+1. Run traditional Spring PetClinic sample as native image
 2. Run the sample with ligth-weight docker container embedded with native image
-
- Bootフレームワークによってこのハンズオン演習は、Oracle GraalVM Enterpriseを利用し、Spring Bootのサンプルspring-petclinicをnative image化し、Dockerコンテナとして稼働するための手順を示すものです。　　
+　
 <br/>
 ## <Prerequistes>
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
@@ -15,11 +14,11 @@
 <br/>
 
 ## ＜Contents＞
-* **[Exercise1: Run spring-petclinic sample as fat jar](#Exercise1-Run-spring-petclinic-sample-as-fat-jar)**
-   * [1.1 Download of spring-petclinic sample](#11-Download-of-spring-petclinic-sample)
-   * [1.2 Build and run spring-petclinic sample as fat jar](#12-Build-and-run-spring-petclinic-sample-as-fat-jar)
+* **[Exercise1: Run Spring PetClinic sample as fat jar](#Exercise1-Run-Spring-PetClinic-sample-as-fat-jar)**
+   * [1.1 Download of Spring PetClinic sample](#11-Download-of-Spring-PetClinic-sample)
+   * [1.2 Build and run Spring PetClinic sample as fat jar](#12-Build-and-run-Spring-PetClinic-sample-as-fat-jar)
 
-* **[Exercise2: Run spring-petclinic sample as native image](#Exercise2-Run-spring-petclinic-sample-as-native-image)**
+* **[Exercise2: Run Spring PetClinic sample as native image](#Exercise2-Run-Spring-PetClinic-sample-as-native-image)**
    * [2.1 Configuration of Spring Native dependency](#21-Configuration-of-Spring-Native-dependency)
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
@@ -27,18 +26,18 @@
    * [2.5 Customization for native image build arguments](#25-Customization-for-native-image-build-arguments)
    * [2.6 Customization for workaround](#26-Customization-for-workaround)
 
-* **[Exercise3: Run spring-petclinic sample as docker container](#Exercise3-Run-spring-petclinic-sample-as-docker-container)**
+* **[Exercise3: Run Spring PetClinic sample as docker container](#Exercise3-Run-Spring-PetClinic-sample-as-docker-container)**
    * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
-   * [3.2 Run spring-petclinic sample as docker container](#32-Run-spring-petclinic-sample-as-docker-container)
+   * [3.2 Run Spring PetClinic sample as docker container](#32-Run-Spring-PetClinic-sample-as-docker-container)
 
-# Exercise1: Run spring-petclinic sample as fat jar  
+# Exercise1: Run Spring PetClinic sample as fat jar  
 Some text
-# 1.1 Download of spring-petclinic sample
+# 1.1 Download of Spring PetClinic sample
 Some text
-# 1.2 Build and run spring-petclinic sample as fat jar
+# 1.2 Build and run Spring PetClinic sample as fat jar
 Some text
 
-# Exercise2: Run spring-petclinic sample as native image  
+# Exercise2: Run Spring PetClinic sample as native image  
 Some text
 # 2.1 Configuration of Spring Native dependency
 Some text
@@ -54,11 +53,11 @@ Some text
 # 2.6 Customization for workaround
 Some text
 
-# Exercise3: Run spring-petclinic sample as docker container  
+# Exercise3: Run Spring PetClinic sample as docker container  
 Some text
 # 3.1 Build light-weight docker container embedded with native image
 Some text
-# 3.2 Run spring-petclinic sample as docker container
+# 3.2 Run Spring PetClinic sample as docker container
 Some text
 
 
@@ -66,7 +65,7 @@ Some text
 
 以下のコマンドでSpringサンプルアプリケーションをダウンロードし、ビルドします。
 >```sh
->$ git clone https://github.com/spring-projects/spring-petclinic.git
+>$ git clone https://github.com/spring-projects/Spring PetClinic.git
 >```
 
 (2)
