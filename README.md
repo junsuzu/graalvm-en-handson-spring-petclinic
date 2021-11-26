@@ -16,7 +16,7 @@
 
 ## ＜Contents＞
 * **[Exercise1: Run spring-petclinic sample as fat jar](#Exercise1-Run-spring-petclinic-sample-as-fat-jar)**
-   * [1.1 Download of spring-petclinic sample](#11-setup-of-spring-petclinic-sample)
+   * [1.1 Download of spring-petclinic sample](#11-Download-of-spring-petclinic-sample)
    * [1.2 Build and run spring-petclinic sample as fat jar](#12-Build-and-run-spring-petclinic-sample-as-fat-jar)
 
 * **[Exercise2: Run spring-petclinic sample as native image](#Exercise2-Run-spring-petclinic-sample-as-native-image)**
