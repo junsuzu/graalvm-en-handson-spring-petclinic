@@ -24,8 +24,12 @@
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
    * [2.4 Configuration of repository for dependency and plugin](#24-Configuration-of-repository-for-dependency-and-plugin)
-   * [2.5 Customization for workaround](#25-Customization-for-workaround)
+   * [2.5 Customization for native image build arguments](#25-Customization-for-native-image-build-arguments)
+   * [2.6 Customization for workaround](#26-Customization-for-workaround)
 
+* **[Exercise3: Run spring-petclinic sample as docker container](#Exercise3-Run-spring-petclinic-sample-as-docker-container)**
+   * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
+   * [3.2 Run spring-petclinic sample as docker container](#32-Run-spring-petclinic-sample-as-docker-container)
 
 # Exercise1: Run spring-petclinic sample as fat jar  
 Some text
@@ -45,7 +49,16 @@ Some text
 # 2.4 Configuration of repository for dependency and plugin
 Some text
 
-# 2.5 Customization for workaround](#15-Customization for workaround
+# 2.5 Customization for native image build arguments
+Some text
+# 2.6 Customization for workaround
+Some text
+
+# Exercise3: Run spring-petclinic sample as docker container  
+Some text
+# 3.1 Build light-weight docker container embedded with native image
+Some text
+# 3.2 Run spring-petclinic sample as docker container
 Some text
 
 
