@@ -1,16 +1,16 @@
-# Oracle GraalVM Enterprise hands-on "Run Spring PetClinic in native image and Docker container" 
+# Run Spring PetClinic sample as native image and Docker container
+</br>
 
-## <Purpose>:
-1. Run traditional Spring PetClinic sample as native image
+## <Summary>  
+1. Run traditional Spring PetClinic sample as native image  
 2. Run the sample with ligth-weight docker container embedded with native image
-　
 <br/>
+
 ## <Prerequistes>
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
-* GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)
-* Docker Engine on Ubuntu ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly)) 
-* Docker Desktop for Windows ([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html)) 
- 
+* GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
+* Docker Engine on Ubuntu ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly))  
+* Docker Desktop for Windows ([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html))  
 <br/>
 
 ## ＜Contents＞
