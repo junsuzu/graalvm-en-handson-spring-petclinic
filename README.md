@@ -25,14 +25,12 @@
 </br>
 
 ## Exercise1: Run Spring PetClinic sample as fat jar  
-Run traditional Spring PetClinic sample application
-### 1.1 Download of Spring PetClinic sample
-Some text
+Using traditional way to build Spring PetClinic sample application into a FAT jar, and run it on GraalVM runtime.  
+### 1.1 Download of Spring PetClinic sample  
 >```sh
 >$ git clone https://github.com/spring-projects/spring-petclinic.git
 >```
-### 1.2 Build and run Spring PetClinic sample as fat jar
-Some text
+### 1.2 Build and run Spring PetClinic sample as fat jar  
 Change java version from 1.8 to 11.
 ```
 <parent>
@@ -45,11 +43,12 @@ Change java version from 1.8 to 11.
   <properties>
 
     <!-- Generic properties -->
-    <java.version>1.8</java.version>
+    **<java.version>11</java.version>**
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-```
-Using maven to build the application
+```  
+
+Using maven command to build the application  
 >```sh
 >$ cd /spring-petclinic
 >$ ./mvnw clean package -DskipTests=true
