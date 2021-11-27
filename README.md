@@ -23,6 +23,7 @@
    * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
    * [3.2 Run Spring PetClinic sample as docker container](#32-Run-Spring-PetClinic-sample-as-docker-container)
 </br>
+
 ## Exercise1: Run Spring PetClinic sample as fat jar  
 Run traditional Spring PetClinic sample application
 ### 1.1 Download of Spring PetClinic sample
