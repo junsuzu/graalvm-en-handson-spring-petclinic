@@ -7,9 +7,7 @@
 * GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
 * Docker Engine on Ubuntu ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly))  
 * Docker Desktop for Windows ([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html))  
-<br/>
-
-## ＜Contents＞
+## Contents
 * **[Exercise1: Run Spring PetClinic sample as fat jar](#Exercise1-Run-Spring-PetClinic-sample-as-fat-jar)**
    * [1.1 Download of Spring PetClinic sample](#11-Download-of-Spring-PetClinic-sample)
    * [1.2 Build and run Spring PetClinic sample as fat jar](#12-Build-and-run-Spring-PetClinic-sample-as-fat-jar)
