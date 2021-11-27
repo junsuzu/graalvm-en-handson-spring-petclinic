@@ -1,11 +1,7 @@
-# Run Spring PetClinic sample as native image and Docker container
-</br>
-
+# Run Spring PetClinic sample as native image and Docker container  
 ## Summary  
 1. Run traditional Spring PetClinic sample as native image  
-2. Run the sample with ligth-weight docker container embedded with native image
-<br/>
-
+2. Run the sample with ligth-weight docker container embedded with native image  
 ## Prerequistes
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
 * GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
