@@ -230,7 +230,7 @@ class CacheConfiguration {
 	//}
 }
 ```
-If you encountered format error after above doing above comment out, run following command to fix.  
+If you encountered format error after doing above comment out, run following command to fix.  
 >```sh
 >./mvnw spring-javaformat:apply
 >```
@@ -239,7 +239,7 @@ If you encountered format error after above doing above comment out, run followi
 Use following command to build the application.
 >```sh
 >$ cd /spring-petclinic
->$ ./mvnw clean package -DskipTests=true
+>$ ./mvnw -Pnative -DskipTests package
 >```
 <br/>
 
