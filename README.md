@@ -1,7 +1,7 @@
 # Run Spring PetClinic Sample Application as native image and Docker container  
 ## Summary  
 1. Run the famous [Spring PetClinic](https://projects.spring.io/spring-petclinic/) Sample Application as native image  
-2. Run this sample with ligth-weight docker container embedded with native image  
+2. Run this sample with lightweight Docker container embedded with native image  
 ## Environment
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
 * GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
@@ -20,9 +20,9 @@
    * [2.5 Workaround for runtime error](#25-Workaround-for-runtime-error)
    * [2.6 Build and run the sample as naitve image](#26-Build-and-run-the-sample-as-naitve-image)
 
-* **[Exercise3: Run Spring PetClinic as docker container](#Exercise3-Run-Spring-PetClinic-as-docker-container)**
-   * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
-   * [3.2 Run Spring PetClinic as docker container](#32-Run-Spring-PetClinic-as-docker-container)
+* **[Exercise3: Run Spring PetClinic as Docker container](#Exercise3-Run-Spring-PetClinic-as-Docker-container)**
+   * [3.1 Build lightweight Docker container embedded with native image](#31-Build-lightweight-docker-container-embedded-with-native-image)
+   * [3.2 Run Spring PetClinic as Docker container](#32-Run-Spring-PetClinic-as-docker-container)
 </br>
 
 ## Exercise1: Run Spring PetClinic as fat jar  
@@ -315,11 +315,11 @@ Confirm the Spring PetClinic starting up with less time compared with JIT mode.
 ```  
 
 
-# Exercise3: Run Spring PetClinic sample as docker container  
+## Exercise3: Run Spring PetClinic as Docker container  
 Some text
-# 3.1 Build light-weight docker container embedded with native image
+### 3.1 Build lightweight Docker container embedded with native image
 Some text
-# 3.2 Run Spring PetClinic sample as docker container
+### 3.2 Run Spring PetClinic sample as Docker container
 Some text
 
 
