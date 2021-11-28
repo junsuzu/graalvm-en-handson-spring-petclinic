@@ -230,6 +230,7 @@ class CacheConfiguration {
 }
 ```
 If you encountered format error after above doing above comment out, run following command to fix.  
+
 >```sh
 ./mvnw spring-javaformat:apply
 >```
