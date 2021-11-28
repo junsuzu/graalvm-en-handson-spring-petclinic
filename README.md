@@ -1,6 +1,6 @@
 # Run Spring PetClinic Sample Application as native image and Docker container  
 ## Summary  
-1. Run traditional [Spring PetClinic](https://projects.spring.io/spring-petclinic/) Sample Application as native image  
+1. Run the famous [Spring PetClinic](https://projects.spring.io/spring-petclinic/) Sample Application as native image  
 2. Run this sample with ligth-weight docker container embedded with native image  
 ## Environment
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
@@ -31,7 +31,7 @@ Build Spring PetClinic Sample Application into a FAT jar, and run it on GraalVM 
 >$ git clone https://github.com/spring-projects/spring-petclinic.git
 >```
 ### 1.2 Build and run Spring PetClinic as fat jar  
-Change java version from 1.8 to 11.
+Change java version from 1.8 to 11 according to environment.
 ```
 <parent>
     <groupId>org.springframework.boot</groupId>
