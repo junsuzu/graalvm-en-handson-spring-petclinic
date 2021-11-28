@@ -271,13 +271,14 @@ Use following command to build the application.
 Run the sample using native image which has been built before.
 
 >```sh
->./spring-petclinic
->
-```
+>$ cd /spring-petclinic
+>$ ./target/spring-petclinic
+>```
+
 Confirm the Spring PetClinic starts up with less time compared with JIT mode.  
 
 ```
-./spring-petclinic
+./target/spring-petclinic
 2021-11-25 19:28:47.017  INFO 9862 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
 
   .   ____          _            __ _ _
@@ -310,7 +311,7 @@ Confirm the Spring PetClinic starts up with less time compared with JIT mode.
 2021-11-25 19:28:47.273  INFO 9862 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
 2021-11-25 19:28:47.285  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2021-11-25 19:28:47.287  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.285 seconds (JVM running for 0.287)
-```
+```  
 
 
 # Exercise3: Run Spring PetClinic sample as docker container  
