@@ -109,7 +109,7 @@ Specify spring-aot-maven-plugin（0.10.5）requried to perform ahead-of-time tra
 ```
 ### 2.3 Configuration of native build tools plugin
 Specify native-maven-plugin(0.9.4) within a native profile as below, which is required to use native build tools plugin provided by GraalVM to invoke native image comiler.  
-Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image linked all necessary libraries statically, except libc(This will decrease overhead on runtime).
+Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image linked all dependency libraries statically in build phase except for libc.
 
 ```
 <profile>
@@ -318,9 +318,43 @@ Confirm the Spring PetClinic starting up with less time compared with JIT mode.
 ## Exercise3: Run Spring PetClinic as Docker container  
 Some text
 ### 3.1 Build lightweight Docker container embedded with native image
-Some text
+
+(1)Create Dockerfile under spring-petclinic directory. Specify the native image built in Exercise2.
+```
+FROM gcr.io/distroless/base
+COPY target/spring-petclinic/ app
+ENTRYPOINT ["/app"]
+```
+(2)Build Docker image as below.
+>```sh
+> docker build -f Dockerfile -t spring-petclinic:distroless .
+>```
+
+(3)Use docker command to confirm Docker image.
+```
+$ docker images
+REPOSITORY                 TAG              IMAGE ID       CREATED         SIZE
+spring-petclinic           distroless       8d361935d447   3 minutes ago   227MB
+```
 ### 3.2 Run Spring PetClinic sample as Docker container
-Some text
+Run Spring PetClinic as Docker container, compare the startup time with JIT mode and native mode.
+```
+docker run --rm -p 8080:8080 spring-petclinic:distroless
+2021-11-25 13:52:55.278  INFO 1 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.6)
+
+2021-11-25 13:52:55.280  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication v2.5.0-SNAPSHOT using Java 11.0.13 on 78336b528188 with PID 1 (/app started by root in /)
+.............
+2021-11-25 13:52:55.456  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-25 13:52:55.457  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.185 seconds (JVM running for 0.186)
+```
 
 
 
@@ -521,41 +555,3 @@ native imageが正常にビルドされることを確認します。
 
 * **[演習3: spring-petclinicサンプルをDocker Image化](#演習2-spring-petclinicサンプルをNative Image化)**
 
-演習2で作成したnative imageをベースに軽量なDocker Imageを作成し、spring-petclinicをコンテナで稼働します。
-(1)以下のDockerfileをspring-petclinic配下に作成します。
-```
-FROM gcr.io/distroless/base
-#COPY build/native-image/application app
-COPY target/spring-petclinic/ app
-ENTRYPOINT ["/app"]
-```
-(2)Native Imageを含むDockerイメージをビルドします。spring-petclinic配下で以下のコマンドを実行します。
-```
-docker build -f Dockerfile -t spring-petclinic:distroless .
-```
-
-(3)Docker imageが正常に作成されていることを確認します。
-```
-$ docker images
-REPOSITORY                 TAG              IMAGE ID       CREATED         SIZE
-spring-petclinic           distroless       8d361935d447   3 minutes ago   227MB
-```
-
-(4)Dockerコンテナを起動します。
-```
-docker run --rm -p 8080:8080 spring-petclinic:distroless
-2021-11-25 13:52:55.278  INFO 1 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.5.6)
-
-2021-11-25 13:52:55.280  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication v2.5.0-SNAPSHOT using Java 11.0.13 on 78336b528188 with PID 1 (/app started by root in /)
-.............
-2021-11-25 13:52:55.456  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-25 13:52:55.457  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.185 seconds (JVM running for 0.186)
-```
