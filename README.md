@@ -241,6 +241,7 @@ Use following command to build the application.
 >$ ./mvnw clean package -DskipTests=true
 >```
 <br/>
+
 ```
 [spring-petclinic:9625]     (clinit):   4,848.07 ms,  8.21 GB
 [spring-petclinic:9625]   (typeflow):  84,575.98 ms,  8.23 GB
@@ -265,7 +266,8 @@ Use following command to build the application.
 [INFO] Total time:  16:29 min
 [INFO] Finished at: 2021-11-25T18:58:18+09:00
 [INFO] ------------------------------------------------------------------------
-```
+```  
+
 Run the sample using native image which has been built before.
 
 >```sh
