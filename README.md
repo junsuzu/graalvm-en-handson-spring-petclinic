@@ -179,7 +179,7 @@ To include the release repository for spring-native dependency, add repository i
 ```
 # 2.5 Customization for workaround
 At this point, there are some runtime errors while running the sample in native image, which could be fixed by using workaround as below:  
-## Comment out the part of spring-boot-devtools
+* Comment out the part of spring-boot-devtools
 ```
 <!-- dependency>
   <groupId>org.springframework.boot</groupId>
@@ -188,7 +188,7 @@ At this point, there are some runtime errors while running the sample in native 
 </dependency -->
 
 ```
-## Comment out the contents of CacheConfiguration class:
+* Comment out the contents of CacheConfiguration class:
 ```
 package org.springframework.samples.petclinic.system;
 
