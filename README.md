@@ -5,8 +5,8 @@
 ## Environment
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
 * GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
-* Docker Engine on Ubuntu ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly))  
-* Docker Desktop for Windows ([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html))  
+* Docker Engine 20.10.8 on Ubuntu within WSL ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly))  
+* Docker Desktop for Windows 3.6.0([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html))  
 ## Contents
 * **[Exercise1: Run Spring PetClinic as fat jar](#Exercise1-Run-Spring-PetClinic-as-fat-jar)**
    * [1.1 Download Spring PetClinic Sample Application](#11-Download-Spring-PetClinic-Sample-Application)
