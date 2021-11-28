@@ -17,7 +17,8 @@
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
    * [2.4 Configuration of repository for dependency and plugin](#24-Configuration-of-repository-for-dependency-and-plugin)
-   * [2.5 Customization for workaround](#25-Customization-for-workaround)
+   * [2.5 Workaround for runtime error](#25-Workaround-for-runtime-error)
+   * [2.6 Build and run the sample as naitve image](#26-Build-and-run-the-sample-as-naitve-image)
 
 * **[Exercise3: Run Spring PetClinic as docker container](#Exercise3-Run-Spring-PetClinic-as-docker-container)**
    * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
@@ -64,9 +65,9 @@ linuser@JUNSUZU-JP:~/project/tmp/spring-petclinic/target$ java -jar spring-petcl
 Run Spring PetClinic sample on browser: http://localhost:8080
 INSERT gif here.
 
-# Exercise2: Run Spring PetClinic as native image  
+## Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
-# 2.1 Configuration of Spring Native dependency
+### 2.1 Configuration of Spring Native dependency
 Specify Spring Native dependency required to run a Spring  application as a native image.
 ```
 <dependencies>
@@ -78,7 +79,7 @@ Specify Spring Native dependency required to run a Spring  application as a nati
     </dependency>
 </dependencies>
 ```
-# 2.2 Configuration of Spring AOT plugin
+### 2.2 Configuration of Spring AOT plugin
 Specify spring-aot-maven-plugin（0.10.5）requried to perform ahead-of-time transformation.
 ```
 <build>
@@ -106,7 +107,7 @@ Specify spring-aot-maven-plugin（0.10.5）requried to perform ahead-of-time tra
     </plugins>
 </build>
 ```
-# 2.3 Configuration of native build tools plugin
+### 2.3 Configuration of native build tools plugin
 Specify native-maven-plugin(0.9.4) within a native profile as below, which is required to use native build tools plugin provided by GraalVM to invoke native image comiler.  
 Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image linked all necessary libraries statically, except libc(This will decrease overhead on runtime).
 
@@ -155,7 +156,7 @@ Be sure to pass native-image build options by using <buildArgs> configuration pa
   </build>
 </profile>
 ```
-# 2.4 Configuration of repository for dependency and plugin
+### 2.4 Configuration of repository for dependency and plugin
 To include the release repository for spring-native dependency, add repository information in pom.xml as below:
 ```
 <repositories>
@@ -177,7 +178,7 @@ To include the release repository for spring-native dependency, add repository i
 		</pluginRepository>
 	</pluginRepositories>
 ```
-# 2.5 Customization for workaround
+### 2.5 Workaround for runtime error
 At this point, there are some runtime errors while running the sample in native image, which could be fixed by using workaround as below:  
 * Comment out the part of spring-boot-devtools
 ```
@@ -234,7 +235,7 @@ If you encountered format error after above doing above comment out, run followi
 >./mvnw spring-javaformat:apply
 >```
 
-# 2.6 Build and run the sample as naitve image
+### 2.6 Build and run the sample as naitve image
 Use following command to build the application.
 >```sh
 >$ cd /spring-petclinic
@@ -275,7 +276,7 @@ Run the sample using native image which has been built before.
 >$ ./target/spring-petclinic
 >```
 
-Confirm the Spring PetClinic starts up with less time compared with JIT mode.  
+Confirm the Spring PetClinic starting up with less time compared with JIT mode.  
 
 ```
 ./target/spring-petclinic
