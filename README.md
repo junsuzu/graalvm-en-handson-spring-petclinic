@@ -336,7 +336,7 @@ $ docker images
 REPOSITORY                 TAG              IMAGE ID       CREATED         SIZE
 spring-petclinic           distroless       8d361935d447   3 minutes ago   227MB
 ```
-### 3.2 Run Spring PetClinic sample as Docker container
+### 3.2 Run Spring PetClinic as Docker container
 Run Spring PetClinic as Docker container, compare the startup time with JIT mode and native mode.
 ```
 docker run --rm -p 8080:8080 spring-petclinic:distroless
