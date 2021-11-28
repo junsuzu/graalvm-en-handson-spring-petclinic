@@ -67,7 +67,7 @@ INSERT gif here.
 # Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
 # 2.1 Configuration of Spring Native dependency
-Add following contents into dependency tag of pom.xml.
+Specify Spring Native dependency required to run a Spring  application as a native image.
 ```
 <dependencies>
     <!-- ... -->
@@ -79,7 +79,7 @@ Add following contents into dependency tag of pom.xml.
 </dependencies>
 ```
 # 2.2 Configuration of Spring AOT plugin
-In order to use Spring AOT plugin provided by Spring Boot, specify spring-aot-maven-plugin（0.10.5）by adding following plugin definition into build tag of pom.xml.
+Specify spring-aot-maven-plugin（0.10.5）requried to perform ahead-of-time transformation.
 ```
 <build>
     <plugins>
@@ -107,9 +107,9 @@ In order to use Spring AOT plugin provided by Spring Boot, specify spring-aot-ma
 </build>
 ```
 # 2.3 Configuration of native build tools plugin
-In order to use native build tools plugin provided by GraalVM to invoke native image comiler, specify native-maven-plugin(0.9.4) within a native profile as below.
-Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image being built with DynamicLink.
-In later step we will use simple base image to build Docker.
+Specify native-maven-plugin(0.9.4) within a native profile as below, which is required to use native build tools plugin provided by GraalVM to invoke native image comiler.  
+Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image linked all necessary libraries statically, except libc(This will decrease overhead on runtime).
+
 ```
 <profile>
   <id>native</id>
@@ -178,9 +178,61 @@ To include the release repository for spring-native dependency, add repository i
 	</pluginRepositories>
 ```
 # 2.5 Customization for workaround
-At this point of time, there are some bugs within the sample, which could be fixed using workaround as below:
+At this point, there are some runtime errors while running the sample in native image, which could be fixed by using workaround as below:  
+## Comment out the part of spring-boot-devtools
+```
+<!-- dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-devtools</artifactId>
+  <optional>true</optional>
+</dependency -->
 
+```
+## Comment out the contents of CacheConfiguration class:
+```
+package org.springframework.samples.petclinic.system;
 
+import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import javax.cache.configuration.MutableConfiguration;
+
+/**
+ * Cache configuration intended for caches providing the JCache API. This configuration
+ * creates the used cache for the application and enables statistics that become
+ * accessible via JMX.
+ */
+//@Configuration(proxyBeanMethods = false)
+//@EnableCaching
+class CacheConfiguration {
+
+//	@Bean
+//	public JCacheManagerCustomizer petclinicCacheConfigurationCustomizer() {
+//		return cm -> {
+//			cm.createCache("vets", cacheConfiguration());
+//		};
+//	}
+
+	/**
+	 * Create a simple configuration that enable statistics via the JCache programmatic
+	 * configuration API.
+	 * <p>
+	 * Within the configuration object that is provided by the JCache API standard, there
+	 * is only a very limited set of configuration options. The really relevant
+	 * configuration options (like the size limit) must be set via a configuration
+	 * mechanism that is provided by the selected JCache implementation.
+	 */
+	//private javax.cache.configuration.Configuration<Object, Object> cacheConfiguration() {
+	//	return new MutableConfiguration<>().setStatisticsEnabled(true);
+	//}
+}
+```
+If you encountered format error after above doing above comment out, run following command to fix.  
+>```sh
+./mvnw spring-javaformat:apply
+>```
 
 # Exercise3: Run Spring PetClinic sample as docker container  
 Some text
