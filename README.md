@@ -43,7 +43,7 @@ Change java version from 1.8 to 11.
   <properties>
 
     <!-- Generic properties -->
-    **<java.version>11</java.version>**
+    <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 ```  
@@ -53,9 +53,8 @@ Using maven command to build the application
 >$ cd /spring-petclinic
 >$ ./mvnw clean package -DskipTests=true
 >```
-<br/>
 
-Run the sample with fat jar.
+Run the fat jar and confirm the startup time of the 
 ```
 linuser@JUNSUZU-JP:~/project/tmp/spring-petclinic/target$ java -jar spring-petclinic-2.5.0-SNAPSHOT-exec.jar
 2021-11-04 02:07:52.445  INFO 6115 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
