@@ -234,6 +234,83 @@ If you encountered format error after above doing above comment out, run followi
 >./mvnw spring-javaformat:apply
 >```
 
+# 2.6 Build and run the sample as naitve image
+Use following command to build the application.
+>```sh
+>$ cd /spring-petclinic
+>$ ./mvnw clean package -DskipTests=true
+>```
+<br/>
+```
+[spring-petclinic:9625]     (clinit):   4,848.07 ms,  8.21 GB
+[spring-petclinic:9625]   (typeflow):  84,575.98 ms,  8.23 GB
+[spring-petclinic:9625]    (objects): 214,809.69 ms,  8.23 GB
+[spring-petclinic:9625]   (features):  50,839.22 ms,  8.23 GB
+[spring-petclinic:9625]     analysis: 471,844.50 ms,  8.23 GB
+[spring-petclinic:9625]     universe:  26,851.50 ms,  8.23 GB
+[spring-petclinic:9625]      (parse):  32,461.57 ms,  7.60 GB
+[spring-petclinic:9625]     (inline):  16,762.41 ms,  7.05 GB
+[spring-petclinic:9625]    (compile): 307,731.81 ms,  8.85 GB
+[spring-petclinic:9625]      compile: 382,525.26 ms,  8.85 GB
+[spring-petclinic:9625]        image:  35,918.80 ms,  8.85 GB
+[spring-petclinic:9625]        write:  19,416.11 ms,  8.85 GB
+[spring-petclinic:9625]      [total]: 951,614.03 ms,  8.85 GB
+# Printing build artifacts to: /home/linuser/project/tmp/spring-petclinic/target/spring-petclinic.build_artifacts.txt
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.5.6:repackage (repackage) @ spring-petclinic ---
+[INFO] Attaching repackaged archive /home/linuser/project/tmp/spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT-exec.jar with classifier exec
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16:29 min
+[INFO] Finished at: 2021-11-25T18:58:18+09:00
+[INFO] ------------------------------------------------------------------------
+```
+Run the sample using native image which has been built before.
+
+>```sh
+>./spring-petclinic
+>
+```
+Confirm the Spring PetClinic starts up with less time compared with JIT mode.  
+
+```
+./spring-petclinic
+2021-11-25 19:28:47.017  INFO 9862 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.5.6)
+
+2021-11-25 19:28:47.023  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication v2.5.0-SNAPSHOT using Java 11.0.13 on JUNSUZU-JP with PID 9862 (/home/linuser/project/tmp/spring-petclinic/target/spring-petclinic started by linuser in /home/linuser/project/tmp/spring-petclinic/target)
+2021-11-25 19:28:47.023  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to default profiles: default
+2021-11-25 19:28:47.079  INFO 9862 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-25 19:28:47.083  INFO 9862 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 4 JPA repository interfaces.
+2021-11-25 19:28:47.119  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-25 19:28:47.121  INFO 9862 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-25 19:28:47.127  INFO 9862 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-25 19:28:47.135  INFO 9862 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-25 19:28:47.136  INFO 9862 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 111 ms
+2021-11-25 19:28:47.140  WARN 9862 --- [           main] i.m.c.i.binder.jvm.JvmGcMetrics          : GC notifications will not be available because MemoryPoolMXBeans are not provided by the JVM
+2021-11-25 19:28:47.162  INFO 9862 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-25 19:28:47.168  INFO 9862 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-25 19:28:47.186  INFO 9862 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-25 19:28:47.187  INFO 9862 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-11-25 19:28:47.190  INFO 9862 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-11-25 19:28:47.198  INFO 9862 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-11-25 19:28:47.199  WARN 9862 --- [           main] org.hibernate.dialect.H2Dialect          : HHH000431: Unable to determine H2 database version, certain features may not work
+2021-11-25 19:28:47.209  INFO 9862 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-25 19:28:47.211  INFO 9862 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-25 19:28:47.273  INFO 9862 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-11-25 19:28:47.285  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-25 19:28:47.287  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.285 seconds (JVM running for 0.287)
+```
+
+
 # Exercise3: Run Spring PetClinic sample as docker container  
 Some text
 # 3.1 Build light-weight docker container embedded with native image
@@ -242,37 +319,7 @@ Some text
 Some text
 
 
-(1)  Spring Petclinic sample web applicationのセットアップ
 
-以下のコマンドでSpringサンプルアプリケーションをダウンロードし、ビルドします。
->```sh
->$ git clone https://github.com/spring-projects/Spring PetClinic.git
->```
-
-(2)
-本演習ではJava11を使用するので、pom.xmlを編集し、Javaバージョンを1.8から11へ変更する。
-```
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.6</version>
-  </parent>
-  <name>petclinic</name>
-
-  <properties>
-
-    <!-- Generic properties -->
-    <java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-```
-(3)
-プロジェクトをビルドする。
->```sh
->$ cd /spring-petclinic
->$ ./mvnw clean package -DskipTests=true
->```
-<br/>
 
 (4)以下のコマンドを実行し、JITモードでサンプルを起動します。
 ```
@@ -465,74 +512,7 @@ class CacheConfiguration {
 >```
 
 native imageが正常にビルドされることを確認します。
-```
-[spring-petclinic:9625]     (clinit):   4,848.07 ms,  8.21 GB
-[spring-petclinic:9625]   (typeflow):  84,575.98 ms,  8.23 GB
-[spring-petclinic:9625]    (objects): 214,809.69 ms,  8.23 GB
-[spring-petclinic:9625]   (features):  50,839.22 ms,  8.23 GB
-[spring-petclinic:9625]     analysis: 471,844.50 ms,  8.23 GB
-[spring-petclinic:9625]     universe:  26,851.50 ms,  8.23 GB
-[spring-petclinic:9625]      (parse):  32,461.57 ms,  7.60 GB
-[spring-petclinic:9625]     (inline):  16,762.41 ms,  7.05 GB
-[spring-petclinic:9625]    (compile): 307,731.81 ms,  8.85 GB
-[spring-petclinic:9625]      compile: 382,525.26 ms,  8.85 GB
-[spring-petclinic:9625]        image:  35,918.80 ms,  8.85 GB
-[spring-petclinic:9625]        write:  19,416.11 ms,  8.85 GB
-[spring-petclinic:9625]      [total]: 951,614.03 ms,  8.85 GB
-# Printing build artifacts to: /home/linuser/project/tmp/spring-petclinic/target/spring-petclinic.build_artifacts.txt
-[INFO]
-[INFO] --- spring-boot-maven-plugin:2.5.6:repackage (repackage) @ spring-petclinic ---
-[INFO] Attaching repackaged archive /home/linuser/project/tmp/spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT-exec.jar with classifier exec
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16:29 min
-[INFO] Finished at: 2021-11-25T18:58:18+09:00
-[INFO] ------------------------------------------------------------------------
-```
 
-(8)target配下にnative imageがビルドされたことを確認し、spring-petclinicをNativeモードで起動します。
->```sh
-./spring-petclinic
->```
-
-```
-./spring-petclinic
-2021-11-25 19:28:47.017  INFO 9862 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v2.5.6)
-
-2021-11-25 19:28:47.023  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication v2.5.0-SNAPSHOT using Java 11.0.13 on JUNSUZU-JP with PID 9862 (/home/linuser/project/tmp/spring-petclinic/target/spring-petclinic started by linuser in /home/linuser/project/tmp/spring-petclinic/target)
-2021-11-25 19:28:47.023  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to default profiles: default
-2021-11-25 19:28:47.079  INFO 9862 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2021-11-25 19:28:47.083  INFO 9862 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 4 JPA repository interfaces.
-2021-11-25 19:28:47.119  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-25 19:28:47.121  INFO 9862 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-25 19:28:47.127  INFO 9862 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-25 19:28:47.135  INFO 9862 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-25 19:28:47.136  INFO 9862 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 111 ms
-2021-11-25 19:28:47.140  WARN 9862 --- [           main] i.m.c.i.binder.jvm.JvmGcMetrics          : GC notifications will not be available because MemoryPoolMXBeans are not provided by the JVM
-2021-11-25 19:28:47.162  INFO 9862 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-25 19:28:47.168  INFO 9862 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-25 19:28:47.186  INFO 9862 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2021-11-25 19:28:47.187  INFO 9862 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
-2021-11-25 19:28:47.190  INFO 9862 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2021-11-25 19:28:47.198  INFO 9862 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2021-11-25 19:28:47.199  WARN 9862 --- [           main] org.hibernate.dialect.H2Dialect          : HHH000431: Unable to determine H2 database version, certain features may not work
-2021-11-25 19:28:47.209  INFO 9862 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2021-11-25 19:28:47.211  INFO 9862 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2021-11-25 19:28:47.273  INFO 9862 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
-2021-11-25 19:28:47.285  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-25 19:28:47.287  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.285 seconds (JVM running for 0.287)
-```
-
-(9)spring-petclinicアプリケーションが正常稼働していることを確認します。
 
 
 * **[演習3: spring-petclinicサンプルをDocker Image化](#演習2-spring-petclinicサンプルをNative Image化)**
