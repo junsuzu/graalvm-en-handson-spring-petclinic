@@ -1,36 +1,36 @@
-# Run Spring PetClinic sample as native image and Docker container  
+# Run Spring PetClinic Sample Application as native image and Docker container  
 ## Summary  
-1. Run traditional [Spring PetClinic sample](https://projects.spring.io/spring-petclinic/) as native image  
-2. Run the sample with ligth-weight docker container embedded with native image  
-## Prerequistes
+1. Run traditional [Spring PetClinic](https://projects.spring.io/spring-petclinic/) as native image  
+2. Run this sample with ligth-weight docker container embedded with native image  
+## Environment
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
 * GraalVM EE 21.3.0 with Java11(Installation guide can be referenced from https://github.com/junsuzu/graalvm-jp-handson-basic/)  
 * Docker Engine on Ubuntu ([Install Docker Engine on Ubuntu](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly))  
 * Docker Desktop for Windows ([Install Docker Desktop for Windows](https://docs.docker.jp/docker-for-windows/install.html))  
 ## Contents
-* **[Exercise1: Run Spring PetClinic sample as fat jar](#Exercise1-Run-Spring-PetClinic-sample-as-fat-jar)**
-   * [1.1 Download of Spring PetClinic sample](#11-Download-of-Spring-PetClinic-sample)
-   * [1.2 Build and run Spring PetClinic sample as fat jar](#12-Build-and-run-Spring-PetClinic-sample-as-fat-jar)
+* **[Exercise1: Run Spring PetClinic as fat jar](#Exercise1-Run-Spring-PetClinic-as-fat-jar)**
+   * [1.1 Download Spring PetClinic Sample Application](#11-Download-Spring-PetClinic-Sample-Application)
+   * [1.2 Build and run Spring PetClinic as fat jar](#12-Build-and-run-Spring-PetClinic-as-fat-jar)
 
-* **[Exercise2: Run Spring PetClinic sample as native image](#Exercise2-Run-Spring-PetClinic-sample-as-native-image)**
+* **[Exercise2: Run Spring PetClinic as native image](#Exercise2-Run-Spring-PetClinic-as-native-image)**
    * [2.1 Configuration of Spring Native dependency](#21-Configuration-of-Spring-Native-dependency)
    * [2.2 Configuration of Spring AOT plugin](#22-Configuration-of-Spring-AOT-plugin)
    * [2.3 Configuration of native build tools plugin](#23-Configuration-of-native-build-tools-plugin)
    * [2.4 Configuration of repository for dependency and plugin](#24-Configuration-of-repository-for-dependency-and-plugin)
    * [2.5 Customization for workaround](#25-Customization-for-workaround)
 
-* **[Exercise3: Run Spring PetClinic sample as docker container](#Exercise3-Run-Spring-PetClinic-sample-as-docker-container)**
+* **[Exercise3: Run Spring PetClinic as docker container](#Exercise3-Run-Spring-PetClinic-as-docker-container)**
    * [3.1 Build light-weight docker container embedded with native image](#31-Build-light-weight-docker-container-embedded-with-native-image)
-   * [3.2 Run Spring PetClinic sample as docker container](#32-Run-Spring-PetClinic-sample-as-docker-container)
+   * [3.2 Run Spring PetClinic as docker container](#32-Run-Spring-PetClinic-as-docker-container)
 </br>
 
-## Exercise1: Run Spring PetClinic sample as fat jar  
-Using traditional way to build Spring PetClinic sample application into a FAT jar, and run it on GraalVM runtime.  
-### 1.1 Download of Spring PetClinic sample  
+## Exercise1: Run Spring PetClinic as fat jar  
+Build Spring PetClinic Sample Application into a FAT jar, and run it on GraalVM using traditional java command.
+### 1.1 Download Spring PetClinic Sample Application 
 >```sh
 >$ git clone https://github.com/spring-projects/spring-petclinic.git
 >```
-### 1.2 Build and run Spring PetClinic sample as fat jar  
+### 1.2 Build and run Spring PetClinic as fat jar  
 Change java version from 1.8 to 11.
 ```
 <parent>
@@ -64,7 +64,7 @@ linuser@JUNSUZU-JP:~/project/tmp/spring-petclinic/target$ java -jar spring-petcl
 Run Spring PetClinic sample on browser: http://localhost:8080
 INSERT gif here.
 
-# Exercise2: Run Spring PetClinic sample as native image  
+# Exercise2: Run Spring PetClinic as native image  
 Some text
 # 2.1 Configuration of Spring Native dependency
 Add following contents into dependency tag of pom.xml.
