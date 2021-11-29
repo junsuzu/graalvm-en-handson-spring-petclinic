@@ -109,7 +109,7 @@ Access Spring PetClinic from browser to confirm the application running properly
 
 <br/>
  
-<img src="images/SpringPetClinic01.JPG" width="50%">
+<img src="images/SpringPetClinic01.JPG" width="50%"><img src="images/SpringPetClinic02.JPG" width="50%">
 <br/>
 
 ## Exercise2: Run Spring PetClinic as native image  
