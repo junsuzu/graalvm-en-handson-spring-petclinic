@@ -1,6 +1,6 @@
 # Run Spring PetClinic Sample Application as native image and Docker container  
 ## Summary  
-1. Run the famous [Spring PetClinic](https://projects.spring.io/spring-petclinic/) Sample Application as native image  
+1. Run the original [Spring PetClinic](https://projects.spring.io/spring-petclinic/) Sample Application as native image  
 2. Run this sample with lightweight Docker container embedded with native executable  
 ## Environment
 * OS: Windows10 + WSL(Windows Subsystem for Linux) + Ubuntu20.04  
