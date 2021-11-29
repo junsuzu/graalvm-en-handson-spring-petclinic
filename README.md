@@ -105,7 +105,10 @@ java -jar target/spring-petclinic-2.5.0-SNAPSHOT.jar
 
 Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080  
 
-![Download Picture 1](images/Spring PetClinic01.JPG)  
+  ![Download Picture 1](images/SpringPetClinic01.JPG) 
+
+<br/>
+ 
 
 ## Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
