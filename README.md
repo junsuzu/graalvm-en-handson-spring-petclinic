@@ -359,7 +359,7 @@ Confirm the Spring PetClinic starting up with less time compared with JIT mode.
 Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080.  
 
 ## Exercise3: Run Spring PetClinic as Docker container  
-Some text
+Embed the native executable made available through Exercise2 into a Docker image and run Spring PetClinic as Docker container.
 ### 3.1 Build lightweight Docker container embedded with native executable
 
 (1)Create Dockerfile under spring-petclinic directory. Specify the native image built in Exercise2.
