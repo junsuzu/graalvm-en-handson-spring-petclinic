@@ -55,15 +55,57 @@ Use maven command to build the application
 >$ ./mvnw clean package -DskipTests=true
 >```
 
-Run the fat jar and confirm the startup time of the application.
+Run the fat jar and confirm the startup time of the application.  
+>```sh
+>$ java -jar target/spring-petclinic-2.5.0-SNAPSHOT.jar
+>```
+
 ```
-linuser@JUNSUZU-JP:~/project/tmp/spring-petclinic/target$ java -jar spring-petclinic-2.5.0-SNAPSHOT-exec.jar
-2021-11-04 02:07:52.445  INFO 6115 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-04 02:07:52.469  INFO 6115 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 5.211 seconds (JVM running for 5.75)
+java -jar target/spring-petclinic-2.5.0-SNAPSHOT.jar
+
+
+              |\      _,,,--,,_
+             /,`.-'`'   ._  \-;;,_
+  _______ __|,4-  ) )_   .;.(__`'-'__     ___ __    _ ___ _______
+ |       | '---''(_/._)-'(_\_)   |   |   |   |  |  | |   |       |
+ |    _  |    ___|_     _|       |   |   |   |   |_| |   |       | __ _ _
+ |   |_| |   |___  |   | |       |   |   |   |       |   |       | \ \ \ \
+ |    ___|    ___| |   | |      _|   |___|   |  _    |   |      _|  \ \ \ \
+ |   |   |   |___  |   | |     |_|       |   | | |   |   |     |_    ) ) ) )
+ |___|   |_______| |___| |_______|_______|___|_|  |__|___|_______|  / / / /
+ ==================================================================/_/_/_/
+
+:: Built with Spring Boot :: 2.5.6
+
+
+2021-11-29 12:01:19.279  INFO 1169 --- [           main] o.s.s.petclinic.PetClinicApplication     : Starting PetClinicApplication v2.5.0-SNAPSHOT using Java 11.0.13 on JUNSUZU-JP with PID 1169 (/home/linuser/project/tmp/test/spring-petclinic/target/spring-petclinic-2.5.0-SNAPSHOT.jar started by linuser in /home/linuser/project/tmp/test/spring-petclinic)
+2021-11-29 12:01:19.285  INFO 1169 --- [           main] o.s.s.petclinic.PetClinicApplication     : No active profile set, falling back to default profiles: default
+2021-11-29 12:01:20.426  INFO 1169 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-29 12:01:20.498  INFO 1169 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 4 JPA repository interfaces.
+2021-11-29 12:01:21.313  INFO 1169 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-29 12:01:21.357  INFO 1169 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-29 12:01:21.361  INFO 1169 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-29 12:01:21.563  INFO 1169 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-29 12:01:21.566  INFO 1169 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2203 ms
+2021-11-29 12:01:22.304  INFO 1169 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-29 12:01:23.062  INFO 1169 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-29 12:01:24.083  INFO 1169 --- [           main] org.ehcache.core.EhcacheManager          : Cache 'vets' created in EhcacheManager.
+2021-11-29 12:01:24.123  INFO 1169 --- [           main] org.ehcache.jsr107.Eh107CacheManager     : Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=urn.X-ehcache.jsr107-default-config,Cache=vets
+2021-11-29 12:01:24.149  INFO 1169 --- [           main] org.ehcache.jsr107.Eh107CacheManager     : Registering Ehcache MBean javax.cache:type=CacheStatistics,CacheManager=urn.X-ehcache.jsr107-default-config,Cache=vets
+2021-11-29 12:01:24.326  INFO 1169 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-29 12:01:24.533  INFO 1169 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-11-29 12:01:24.980  INFO 1169 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-11-29 12:01:25.461  INFO 1169 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-11-29 12:01:27.564  INFO 1169 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-29 12:01:27.597  INFO 1169 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-29 12:01:31.715  INFO 1169 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 13 endpoint(s) beneath base path '/actuator'
+2021-11-29 12:01:31.854  INFO 1169 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-29 12:01:31.904  INFO 1169 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 13.193 seconds (JVM running for 13.795)
 ```
 
-Run Spring PetClinic sample on browser: http://localhost:8080
-INSERT gif here.
+Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080
+
+![Download Picture 1](images/Spring PetClinic01.JPG)
 
 ## Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
