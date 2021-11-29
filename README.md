@@ -49,7 +49,7 @@ Change java version from 1.8 to 11 according to environment.
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 ```  
 
-Use maven command to build the application  
+Use maven command to build the application.  
 >```sh
 >$ cd /spring-petclinic
 >$ ./mvnw clean package -DskipTests=true
