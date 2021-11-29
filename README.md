@@ -103,7 +103,7 @@ java -jar target/spring-petclinic-2.5.0-SNAPSHOT.jar
 2021-11-29 12:01:31.904  INFO 1169 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 13.193 seconds (JVM running for 13.795)
 ```
 
-Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080  
+Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080.  
  
 <img src="images/SpringPetClinic01.JPG" width="50%">　<img src="images/SpringPetClinic02.JPG" width="50%">
 <br/>
@@ -356,7 +356,7 @@ Confirm the Spring PetClinic starting up with less time compared with JIT mode.
 2021-11-25 19:28:47.285  INFO 9862 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2021-11-25 19:28:47.287  INFO 9862 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.285 seconds (JVM running for 0.287)
 ```  
-
+Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080.  
 
 ## Exercise3: Run Spring PetClinic as Docker container  
 Some text
@@ -398,6 +398,6 @@ docker run --rm -p 8080:8080 spring-petclinic:distroless
 2021-11-25 13:52:55.456  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2021-11-25 13:52:55.457  INFO 1 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 0.185 seconds (JVM running for 0.186)
 ```
+Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080.  
 
-Confirm the application by access http://localhost:8080/ .
 
