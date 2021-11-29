@@ -103,9 +103,9 @@ java -jar target/spring-petclinic-2.5.0-SNAPSHOT.jar
 2021-11-29 12:01:31.904  INFO 1169 --- [           main] o.s.s.petclinic.PetClinicApplication     : Started PetClinicApplication in 13.193 seconds (JVM running for 13.795)
 ```
 
-Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080
+Access Spring PetClinic from browser to confirm the application running properly: http://localhost:8080  
 
-![Download Picture 1](images/Spring PetClinic01.JPG)
+![Download Picture 1](images/Spring PetClinic01.JPG)  
 
 ## Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
