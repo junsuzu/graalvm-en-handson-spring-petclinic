@@ -109,6 +109,8 @@ Access Spring PetClinic from browser to confirm the application running properly
 
 <br/>
  
+<img src="images/SpringPetClinic01.JPG" width="50%">
+<br/>
 
 ## Exercise2: Run Spring PetClinic as native image  
 By following the guide of [Spring Native documentation](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/), build the sample into native image without changing the application.
