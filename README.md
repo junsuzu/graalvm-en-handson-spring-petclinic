@@ -151,8 +151,8 @@ Specify spring-aot-maven-plugin（0.10.5）requried to perform ahead-of-time tra
 </build>
 ```
 ### 2.3 Configuration of native build tools plugin
-Specify native-maven-plugin(0.9.4) within a native profile as below, which is required to use native build tools plugin provided by GraalVM to invoke native image comiler.  
-Be sure to pass native-image build options by using <buildArgs> configuration parameter, to make the native image linked all dependency libraries statically in build phase except for libc.
+Specify native-maven-plugin(0.9.4) within a native profile as below, which is required while using native build tools plugin provided by GraalVM to invoke native image comiler.  
+Be sure to pass native-image build options("-H:+StaticExecutableWithDynamicLibC") by using <buildArgs> configuration parameter, to make the native image linked all dependency libraries statically except for libc in build phase.
 
 ```
 <profile>
